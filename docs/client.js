@@ -2,6 +2,8 @@ const publicVapidKey =
   "BH64DqelDX9QUGQKB_cUAVIn5lIT5_tS0J3_hgzUD4n0IfMhOVBg3TIesiijU-Y7COJAKpPdeaQQ4wCv-RKRJ48";
 
 let btn = document.querySelector(".click-btn");
+let date = new Date();
+btn.innerHTML = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}:${date.getUTCMilliseconds()}`;
 btn.addEventListener("click", () => {
   if ("serviceWorker" in navigator) {
     send().catch((err) => console.log(err));
