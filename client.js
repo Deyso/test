@@ -3,7 +3,7 @@ const publicVapidKey =
 
 let btn = document.querySelector(".click-btn");
 let date = new Date();
-btn.innerHTML = `Clasdfasdf me`;
+btn.innerHTML = `fffg me`;
 btn.addEventListener("click", () => {
   if ("serviceWorker" in navigator) {
     send().catch((err) => console.log(err));
@@ -15,9 +15,7 @@ btn.addEventListener("click", () => {
 
 async function send() {
   console.log("Registering service worker...");
-  const register = await navigator.serviceWorker.register("./worker.js", {
-    scope: "/",
-  });
+  const register = await navigator.serviceWorker.register("./worker.js");
 
   const subscription = await register.pushManager.subscribe({
     userVisibleOnly: true,
