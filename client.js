@@ -15,7 +15,7 @@ btn.addEventListener("click", () => {
 
 async function send() {
   console.log("Registering service worker...");
-  const register = await navigator.serviceWorker.register("/worker.js", {
+  const register = await navigator.serviceWorker.register("./worker.js", {
     scope: "/",
   });
 
@@ -23,7 +23,7 @@ async function send() {
     userVisibleOnly: true,
     applicationServerKey: urlBase64ToUint8Array(publicVapidKey),
   });
-  console.log(JSON.stringify(subscription))
+  console.log(JSON.stringify(subscription));
   console.log(subscription, "befooore fetch");
   let f = { hello: "valami", ki: 444 };
   f = JSON.stringify(f);
