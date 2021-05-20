@@ -22,7 +22,6 @@ async function send() {
     applicationServerKey: urlBase64ToUint8Array(publicVapidKey),
   });
   console.log(JSON.stringify(subscription));
-  console.log(subscription, "befooore fetch");
   let f = { hello: "valami", ki: 444 };
   f = JSON.stringify(f);
 
@@ -44,15 +43,6 @@ fetch("http://localhost:5000/get", { mode: "no-cors" })
   .then((list) => {
     console.log(list);
   });
-
-fetch(
-  "https://raw.githubusercontent.com/typicode/json-server/master/src/cli/example.json"
-)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data); // Prints result from `response.json()` in getRequest
-  })
-  .catch((error) => console.error(error));
 
 // this.loading = false;
 console.log(this.plates);
