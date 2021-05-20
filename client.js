@@ -45,6 +45,15 @@ fetch("http://localhost:5000/get", { mode: "no-cors" })
     console.log(list);
   });
 
+fetch(
+  "https://raw.githubusercontent.com/typicode/json-server/master/src/cli/example.json"
+)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data); // Prints result from `response.json()` in getRequest
+  })
+  .catch((error) => console.error(error));
+
 // this.loading = false;
 console.log(this.plates);
 
