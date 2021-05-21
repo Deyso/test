@@ -28,7 +28,7 @@ async function send() {
   let f = { hello: "valami", ki: 444 };
   f = JSON.stringify(f);
 
-  await fetch("http://192.168.1.79:5000/subscribe", {
+  await fetch("http://192.168.1.85:5000/subscribe", {
     mode: "no-cors",
     method: "POST",
     body: JSON.stringify(f),
