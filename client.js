@@ -1,9 +1,11 @@
+let keys = document.querySelector(".keys");
+
 const publicVapidKey =
   "BH64DqelDX9QUGQKB_cUAVIn5lIT5_tS0J3_hgzUD4n0IfMhOVBg3TIesiijU-Y7COJAKpPdeaQQ4wCv-RKRJ48";
 
 let btn = document.querySelector(".click-btn");
 let date = new Date();
-btn.innerHTML = `fffg me`;
+btn.innerHTML = `Click on me`;
 btn.addEventListener("click", () => {
   if ("serviceWorker" in navigator) {
     send().catch((err) => console.log(err));
@@ -21,11 +23,12 @@ async function send() {
     userVisibleOnly: true,
     applicationServerKey: urlBase64ToUint8Array(publicVapidKey),
   });
+  keys.innerHTML = JSON.stringify(subscription);
   console.log(JSON.stringify(subscription));
   let f = { hello: "valami", ki: 444 };
   f = JSON.stringify(f);
 
-  await fetch("http://localhost:5000/subscribe", {
+  await fetch("http://192.168.1.79:5000/subscribe", {
     mode: "no-cors",
     method: "POST",
     body: JSON.stringify(f),
@@ -34,14 +37,10 @@ async function send() {
     },
   });
 }
-
-fetch("http://localhost:5000/get", { mode: "no-cors" })
-  .then((data) => {
-    console.log(data, Math.random() * 1000);
-    return data;
-  })
-  .then((list) => {
-    console.log(list);
+fetch("https://raw.githubusercontent.com/Deyso/test/master/try.json")
+  .then((res) => res.json())
+  .then((text) => {
+    console.log(text);
   });
 
 // this.loading = false;
